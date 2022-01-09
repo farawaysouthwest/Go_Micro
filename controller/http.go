@@ -11,9 +11,6 @@ import (
 
 type Controller interface {
 
-	// root route controller.
-  GetRoot(c *gin.Context) 
-
   // user route controller.
   GetUser(c *gin.Context)
 }
@@ -29,12 +26,6 @@ func NewController(service svc.Service) Controller {
 }
 
 // Controller functions.
-
-func (r controller) GetRoot(c *gin.Context) {
-	c.JSON(200, gin.H{
-			"message": "test",
-		})
-}
 
 func (r controller) GetUser(c *gin.Context) {
 

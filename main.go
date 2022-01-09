@@ -17,7 +17,6 @@ func main () {
 	controllers := controller.NewController(service)
 
 	// Routes
-	router.GET("/", controllers.GetRoot)
 	router.GET("/user/:userid", controllers.GetUser) 
 
 	router.Run(":8080")
