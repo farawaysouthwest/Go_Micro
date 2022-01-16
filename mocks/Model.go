@@ -14,7 +14,7 @@ type Model struct {
 }
 
 // GetUser provides a mock function with given fields: id
-func (_m *Model) GetUser(id int64) model.User {
+func (_m *Model) GetUser(id int64) (model.User, error) {
 	ret := _m.Called(id)
 
 	var r0 model.User
@@ -24,5 +24,12 @@ func (_m *Model) GetUser(id int64) model.User {
 		r0 = ret.Get(0).(model.User)
 	}
 
-	return r0
+	var r1 error
+	if rf, ok := ret.Get(1).(func(int64) error); ok {
+		r1 = rf(id)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
 }

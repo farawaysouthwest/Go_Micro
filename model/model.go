@@ -5,7 +5,7 @@ import "log"
 // Model build assets.
 type Model interface {
 // User model formatter.
-GetUser(id int64) User
+GetUser(id int64) (User, error)
 }
 
 
@@ -31,14 +31,14 @@ type User struct{
 	Role string
 }
 
-func (r model) GetUser(id int64) User{
+func (r model) GetUser(id int64) (User, error){
 
 	user, err := r.mockDB(id)
 	if err != nil {
 		log.Panic("error querying mock database")
 	}
 
-	return user
+	return user, nil
 }
 
 

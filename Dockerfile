@@ -16,6 +16,8 @@ WORKDIR /root/
 
 COPY --from=0 /app/app ./
 
+ENV GIN_MODE=release
+
 EXPOSE 8080
 
 ENTRYPOINT ["./app"]

@@ -26,8 +26,10 @@ func NewService(model model.Model) Service {
 
 func (r service) FetchUser(id int64) model.User{
 
-	user := r.model.GetUser(id)
-
+	user, err := r.model.GetUser(id)
+	if err != nil {
+		log.Panicln("problem getting user")
+	}
 
 	formattedUser, err := r.formatUser(user)
 	if err != nil {

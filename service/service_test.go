@@ -14,21 +14,19 @@ type testContext struct {
 	service Service
 }
 
-func newTestContext(t *testing.T) testContext{
+func newTestContext(t *testing.T) (ctx testContext){
 	
-	mockModel := &mocks.Model{}
+	ctx.mockModel = &mocks.Model{}
+	ctx.service = NewService(ctx.mockModel)
 
-	return testContext{
-		mockModel: mockModel,
-		service: NewService(mockModel),
-	}
+	return ctx
 }
 
-func TestFetchUser(t *testing.T) {
+func Test_Service_FetchUser(t *testing.T) {
 	
 	tc := newTestContext(t)
 
-	tc.mockModel.On("GetUser", mock.Anything).Return(model.User{})
+	tc.mockModel.On("GetUser", mock.Anything).Return(model.User{}, nil)
 
 	result := tc.service.FetchUser(123)
 
