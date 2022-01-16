@@ -13,13 +13,13 @@ type Model struct {
 	mock.Mock
 }
 
-// ModelUser provides a mock function with given fields: dbRecord
-func (_m *Model) ModelUser(dbRecord model.DataBaseUser) model.User {
-	ret := _m.Called(dbRecord)
+// GetUser provides a mock function with given fields: id
+func (_m *Model) GetUser(id int64) model.User {
+	ret := _m.Called(id)
 
 	var r0 model.User
-	if rf, ok := ret.Get(0).(func(model.DataBaseUser) model.User); ok {
-		r0 = rf(dbRecord)
+	if rf, ok := ret.Get(0).(func(int64) model.User); ok {
+		r0 = rf(id)
 	} else {
 		r0 = ret.Get(0).(model.User)
 	}

@@ -28,7 +28,7 @@ func TestFetchUser(t *testing.T) {
 	
 	tc := newTestContext(t)
 
-	tc.mockModel.On("ModelUser", mock.Anything).Return(model.User{})
+	tc.mockModel.On("GetUser", mock.Anything).Return(model.User{})
 
 	result := tc.service.FetchUser(123)
 

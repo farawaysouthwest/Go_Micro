@@ -14,10 +14,10 @@ func main () {
 	// Init layers.
 	model := model.NewModel()
 	service := svc.NewService(model)
-	controllers := controller.NewController(service)
+	controller := controller.NewController(service)
 
 	// Routes
-	router.GET("/user/:userid", controllers.GetUser) 
+	router.GET("/user/:userid", controller.GetUser) 
 
 	router.Run(":8080")
 }

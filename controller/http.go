@@ -20,7 +20,7 @@ type controller struct {
 }
 
 func NewController(service svc.Service) Controller {
-	return controller{
+	return &controller{
 		service: service,
 	}
 }
