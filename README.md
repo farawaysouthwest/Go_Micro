@@ -1,2 +1,2 @@
 # Go_Micro
-A minimalist GO microservice architecture example.
+A minimalist Go microservice architecture example.
