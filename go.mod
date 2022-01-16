@@ -1,4 +1,4 @@
-module go_mvc
+module go_micro
 
 go 1.17
 

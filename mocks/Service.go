@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	model "go_mvc/model"
+	model "go_micro/model"
 
 	mock "github.com/stretchr/testify/mock"
 )

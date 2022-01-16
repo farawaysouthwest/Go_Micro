@@ -1,7 +1,7 @@
 package service
 
 import (
-	model "go_mvc/model"
+	model "go_micro/model"
 	"log"
 )
 

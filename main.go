@@ -1,9 +1,9 @@
 package main
 
 import (
-	controller "go_mvc/controller"
-	model "go_mvc/model"
-	svc "go_mvc/service"
+	controller "go_micro/controller"
+	model "go_micro/model"
+	svc "go_micro/service"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,7 +1,7 @@
 package controller
 
 import (
-	svc "go_mvc/service"
+	svc "go_micro/service"
 	"strconv"
 
 	"github.com/gin-gonic/gin"

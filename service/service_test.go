@@ -1,8 +1,8 @@
 package service
 
 import (
-	mocks "go_mvc/mocks"
-	"go_mvc/model"
+	mocks "go_micro/mocks"
+	"go_micro/model"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
