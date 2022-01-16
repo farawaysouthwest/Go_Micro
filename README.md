@@ -2,7 +2,7 @@
 
 A minimalist Go microservice architecture example. Use as a template for your next MicroService!
 
-This structure has been battle testing in production with a number of my clients.
+This structure has been battle tested in production with a number of my clients.
 
 ## Getting Started
 
@@ -36,13 +36,13 @@ go run .
 
 ## Running the tests
 
-Testing mocks can be generated with the Mockery tool:
+Testing mocks can be generated with the Mockery tool, this will generate mocks for any public interface.
 
 ```sh
 mockery --all
 ```
 
-The just run all tests:
+Then just run all tests:
 
 ```sh
 go test ./...
