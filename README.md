@@ -2,8 +2,6 @@
 
 A minimalist Go microservice architecture example. Use as a template for your next MicroService!
 
-This structure has been battle tested in production with a number of my clients.
-
 ## Getting Started
 
 Uses basic Go commands for local development.
