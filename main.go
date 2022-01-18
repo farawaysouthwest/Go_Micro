@@ -1,23 +1,11 @@
 package main
 
-import (
-	controller "go_micro/controller"
-	model "go_micro/model"
-	svc "go_micro/service"
-
-	"github.com/gin-gonic/gin"
-)
-
 func main () {
-	// Init router.
-	router := gin.Default()
-	// Init layers.
-	model := model.NewModel()
-	service := svc.NewService(model)
-	controller := controller.NewController(service)
+
+	r := InitializeRouter()
 
 	// Routes
-	router.GET("/user/:userid", controller.GetUser) 
+	r.Router.GET("/user/:userid", r.Controller.GetUser) 
 
-	router.Run(":8080")
+	r.Router.Run(":8080")
 }
