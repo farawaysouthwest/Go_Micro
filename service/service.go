@@ -7,16 +7,16 @@ import (
 
 // Service build assets
 type Service interface {
-	FetchUser(id int64) model.User
+	GetUser(id int64) (model.User, error)
 }
 
 type service struct {
-	model model.Model
+	database MockDB
 }
 
-func NewService(model model.Model) Service {
+func NewService(db MockDB) Service {
 	return &service{
-		model: model,
+		database: db,
 	}
 }
 
@@ -24,20 +24,23 @@ func NewService(model model.Model) Service {
 // Example service functions
 // Don't forget to add any functions to the interface!
 
-func (r service) FetchUser(id int64) model.User{
+func (r service) GetUser(id int64) (model.User, error){
 
-	user, err := r.model.GetUser(id)
+	user, err := r.database.User(id)
 	if err != nil {
-		log.Panicln("problem getting user")
+		log.Panic("error querying mock database")
 	}
 
-	formattedUser, err := r.formatUser(user)
+		formattedUser, err := r.formatUser(user)
 	if err != nil {
 		log.Panicln("problem formatting user")
 	}
 
-	return formattedUser
+	return formattedUser, nil
 }
+
+
+
 
 // example of a service layer data manipulation func.
 func (r service) formatUser(user model.User) (model.User, error) {

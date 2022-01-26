@@ -10,7 +10,6 @@ import (
 // Controller build assets.
 
 type Controller interface {
-
   // user route controller.
   GetUser(c *gin.Context)
 }
@@ -36,7 +35,10 @@ func (r controller) GetUser(c *gin.Context) {
 		println(err)
 	}
 	
-	user := r.service.FetchUser(userId)
+	user, err := r.service.GetUser(userId)
+	if err != nil {
+		println(err)
+	}
 
 	//return
 	c.JSON(200, gin.H{

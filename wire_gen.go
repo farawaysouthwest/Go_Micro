@@ -7,17 +7,18 @@
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"go_micro/controller"
-	"go_micro/model"
 	"go_micro/service"
 )
 
 // Injectors from wire.go:
 
-func InitializeRouter() *Router {
-	modelModel := model.NewModel()
-	serviceService := service.NewService(modelModel)
+func InitializeRouter() Router {
+	mockDB := service.NewMockDB()
+	serviceService := service.NewService(mockDB)
 	controllerController := controller.NewController(serviceService)
-	router := NewRouter(controllerController)
-	return router
+	engine := gin.Default()
+	mainRouter := NewRouter(controllerController, engine)
+	return mainRouter
 }

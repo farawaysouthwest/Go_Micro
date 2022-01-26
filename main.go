@@ -1,11 +1,15 @@
 package main
 
+
 func main () {
 
 	r := InitializeRouter()
 
-	// Routes
-	r.Router.GET("/user/:userid", r.Controller.GetUser) 
+	router := r.GetRouter()
+	controller := r.GetController()
 
-	r.Router.Run(":8080")
+	// Routes
+	router.GET("/user/:userid", controller.GetUser)
+
+	router.Run(":8080")
 }
