@@ -19,13 +19,13 @@ func newTestContext(t *testing.T) (ctx testContext){
 	return ctx
 }
 
-func Test_Service_FetchUser(t *testing.T) {
+func Test_Service_GetUser(t *testing.T) {
 	
 	tc := newTestContext(t)
 
 	result, err := tc.service.GetUser(123)
 
 	var expected model.User
-	assert.Error(t, err)
+	assert.Nil(t, err)
 	assert.IsType(t, expected, result)
 }
